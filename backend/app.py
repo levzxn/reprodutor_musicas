@@ -81,4 +81,4 @@ async def get_musica_letra(musica_id: UUID):
         response = await client.get(f"http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id={track_id}&apikey={key}")
         response.raise_for_status()
         letra = response.json()['message']['body']['lyrics']['lyrics_body']
-    return letra
+    return {'letra':letra}
